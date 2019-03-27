@@ -4,7 +4,7 @@ server:
   servlet:
     context-path: /
 spring:
-  profile:prod
+  profiles: prod
   datasource:
     #引入druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
@@ -30,14 +30,13 @@ mybatis-plus:
   mapper-locations: classpath:/mybatis/mappers/*.xml
   configuration:
     map-underscore-to-camel-case: true  #自动开启驼峰规则映射
-    
 --- #环境分割线
 server:
   port: 8005
   servlet:
     context-path: /
 spring:
-  profile:test
+  profiles: test
   datasource:
     #引入druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
@@ -54,7 +53,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:7000/eureka
   instance:
-    instance-id: provider-user-8005                #定义微服务的名称
+    instance-id: provider-user-8005               #定义微服务的名称
     prefer-ip-address: true                        #是否显示IP和端口
 
 
